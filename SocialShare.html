@@ -1,0 +1,34 @@
+<style>
+    #facebook-share-icon, #twitter-share-icon, #linkedIn-share-icon, #email-share-icon {
+        width: 20%;
+        float: left;
+    }
+    #facebook-share-icon, #twitter-share-icon, #linkedIn-share-icon {
+        margin-right: 6.6%;
+    }
+
+    .share-icons {
+        margin-top: 7.5px;
+        margin-bottom: 7.5px;
+    }
+</style>
+<div class="share-icons">
+    <h1>SHARE</h1>
+    <a id="facebook-share-icon" href="#" target="_blank"><img src="images/ace/components/facebook.jpg" alt="facebook icon"></a>
+    <a id="twitter-share-icon" href="#" target="_blank"><img src="images/ace/components/twitter.jpg" alt="twitter icon"></a>
+    <a id="linkedIn-share-icon" href="#" target="_blank"><img src="images/ace/components/linkedin.jpg" alt="linkedin icon"></a>
+    <a id="email-share-icon" href="#"><img src="images/ace/components/email.jpg" alt="email icon"></a>
+</div>
+<br/>
+<script>
+    $(document).ready(function() {
+        var linkedInTitle, shareUrl;
+        shareUrl = window.location.href.replace(/:/g, '%3A');
+        linkedInTitle = document.title.replace(/:/g, '%#A');
+        linkedInTitle = linkedInTitle.replace(/&/g, '%26');
+        $('#facebook-share-icon').attr('href', 'https://www.facebook.com/sharer/sharer.php?u=' + shareUrl);
+        $('#twitter-share-icon').attr('href', 'https://twitter.com/home?status=' + shareUrl);
+        $('#linkedIn-share-icon').attr('href', 'https://www.linkedin.com/shareArticle?mini=true&url=' + shareUrl + '&title=' + linkedInTitle);
+        $('#email-share-icon').attr('href', 'mailto:?&subject=' + document.title + '&body=Hey! Your friend really wants you to check out this page from Champlain College in Burlington Vermont: ' + window.location.href);
+    });
+</script>
