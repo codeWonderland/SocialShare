@@ -22,13 +22,11 @@
 <br/>
 <script>
     $(document).ready(function() {
-        var linkedInTitle, shareUrl;
+        var shareUrl;
         shareUrl = window.location.href.replace(/:/g, '%3A');
-        linkedInTitle = document.title.replace(/:/g, '%#A');
-        linkedInTitle = linkedInTitle.replace(/&/g, '%26');
         $('#facebook-share-icon').attr('href', 'https://www.facebook.com/sharer/sharer.php?u=' + shareUrl);
         $('#twitter-share-icon').attr('href', 'https://twitter.com/home?status=' + shareUrl);
-        $('#linkedIn-share-icon').attr('href', 'https://www.linkedin.com/shareArticle?mini=true&url=' + shareUrl + '&title=' + linkedInTitle);
-        $('#email-share-icon').attr('href', 'mailto:?&subject=' + document.title + '&body=Hey! Your friend really wants you to check out this page from Champlain College in Burlington Vermont: ' + window.location.href);
+        $('#linkedIn-share-icon').attr('href', 'https://www.linkedin.com/shareArticle?mini=true&url=' + shareUrl + '&title=' + document.title.replace(/:/g, '%3A').replace(/&/g, '%26').replace(/\|/g, '%7C').replace(/ /g, '%20'));
+        $('#email-share-icon').attr('href', 'mailto:?&subject=' + document.title.replace(/:/g, '%3A').replace(/&/g, '%26').replace(/\|/g, '%7C').replace(/ /g, '%20') + '&body=Hey!%20Your%20friend%20really%20wants%20you%20to%20check%20out%20this%20page%20from%20Champlain%20College%20in%20Burlington%20Vermont%3A%20' + window.location.href.replace(/:/g, '%3A').replace(/:/g, '%2A').replace(/&/g, '%26').replace(/\|/g, '%7C').replace(/ /g, '%20'));
     });
 </script>
